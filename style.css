@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  /* #### Text */
+
+  --Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --Soft-red: hsl(14, 88%, 65%);
+
+  /* #### Gradient
+
+Background gradient: */
+
+  --Soft-violet: hsl(273, 75%, 66%);
+  --Soft-blue: hsl(240, 73%, 65%);
+
+  /* ### Neutral
+
+#### Text */
+
+  --Very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --Dark-grayish-blue: hsl(240, 6%, 50%);
+
+  /* #### Dividers */
+
+  --Light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(var(--Soft-violet), var(--Soft-blue));
+  font-family: "Kumbh Sans", sans-serif;
+  color: var(--Very-dark-grayish-blue);
+  font-size: 12px;
+  line-height: 2rem;
+  overflow: hidden;
+}
+.container {
+  background: #fff;
+  width: 70%;
+  height: 80%;
+  margin: 100px auto;
+  border-radius: 20px;
+}
+
+.desktop-bg,
+.desktop-woman,
+.box {
+  display: none;
+}
+
+@keyframes dropDown {
+  from {
+    top: -20rem;
+  }
+  to {
+    top: 0;
+  }
+}
+.bg-pattern {
+  position: relative;
+  left: 12%;
+  animation: dropDown 1s ease-in-out;
+}
+
+.woman {
+  position: relative;
+  transform: translate(-50%, -110%);
+  left: 45%;
+  animation: dropDown 1.5s ease-in-out;
+}
+
+.facts {
+  position: relative;
+  top: -35%;
+  padding: 0 20px;
+}
+@keyframes grow {
+  from {
+    font-size: 0;
+  }
+  to {
+    font-size: 3em;
+  }
+}
+
+h1 {
+  font-weight: 700;
+  color: var(--Very-dark-desaturated-blue);
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 2rem;
+  animation: grow 1.5s ease-in-out;
+}
+
+h3 {
+  color: var(--Dark-grayish-blue);
+  margin: 5px 0;
+  cursor: pointer;
+  animation: comeUp 1s ease;
+}
+
+h3 img {
+  float: right;
+  position: relative;
+  top: 13px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+h3:hover {
+  transition: 0.5s ease;
+  color: var(--Soft-red);
+}
+
+hr {
+  border: 1px solid var(--Light-grayish-blue);
+}
+
+.panel {
+  color: var(--Very-dark-grayish-blue);
+  line-height: 1rem;
+}
+@keyframes comeUp {
+  from {
+    top: 20rem;
+  }
+  to {
+    top: 0;
+  }
+}
+
+.question {
+  position: relative;
+  animation: comeUp 1s ease;
+}
+
+.question .panel {
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+}
+
+h3.active {
+  color: var(--Very-dark-desaturated-blue);
+}
+
+h3.active + .panel {
+  max-height: 100px;
+  transition: max-height 0.5s ease-in;
+}
+
+h3.active img {
+  transform: rotate(540deg);
+}
+
+@media (min-width: 700px) {
+  .woman,
+  .bg-pattern {
+    display: none;
+  }
+  .desktop-bg,
+  .desktop-woman,
+  .box {
+    display: block;
+  }
+
+  .container {
+    width: 920px;
+    max-height: 512px;
+    overflow: hidden;
+  }
+  h1 {
+    position: relative;
+    top: -65rem;
+    left: 2.2rem;
+  }
+
+  @keyframes fullRise {
+    from {
+      top: -35rem;
+    }
+    to {
+      top: -65rem;
+    }
+  }
+  .question {
+    top: -65rem;
+    left: 50%;
+    width: calc(57.5rem / 2.3);
+    animation: fullRise 1s ease;
+  }
+
+  .desktop-img {
+    position: relative;
+    top: -57%;
+    left: -63%;
+  }
+
+  @keyframes woman-rise {
+    from {
+      top: 0;
+    }
+    to {
+      top: -36rem;
+    }
+  }
+
+  .desktop-woman {
+    position: relative;
+    top: -36rem;
+    left: 31rem;
+    animation: woman-rise 1s ease;
+  }
+
+  @keyframes box-drop {
+    from {
+      top: -2rem;
+    }
+    to {
+      top: 19.6rem;
+    }
+  }
+
+  .box {
+    position: absolute;
+    top: 19.6rem;
+    left: 20.5rem;
+    z-index: 2;
+    animation: box-drop 1s ease;
+  }
+}
